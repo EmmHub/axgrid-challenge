@@ -1,0 +1,118 @@
+:root {
+    --space-5: 1.25rem;
+    --space-10: 2.5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-center{
+    justify-content: center;
+}
+
+.flex-align-center{
+    align-items: center;
+}
+
+.flex-1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-right: var(--space-10);
+}
+
+.mt-20 {
+    margin-top: 5rem;
+}
+
+.mb-10 {
+    margin-bottom: 10rem;
+}
+
+.mb-5 {
+    margin-bottom: 5rem;
+}
+
+.py-5{
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+}
+
+.col-md-6 {
+    width: 50%;
+    padding-right: 5px;
+    padding-left: 0;
+    z-index: 9999999;
+}
+
+.energyTradesTable {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    border-collapse: separate;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+}
+
+.tableHeader {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tableCell {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.nav-link {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav-link-table {
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: darkblue;
+}
+
+.nav-separator {
+    margin: 0 10px;
+    color: black;
+    font-size: 20px;
+}
+
+.button-link {
+    font-size: 15px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: arial, sans-serif;
+    color: #337ab7;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    color: darkblue;
+    text-decoration: underline;
+}

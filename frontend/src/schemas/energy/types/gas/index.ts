@@ -6,22 +6,22 @@ import {
 } from '../../../../utils';
 
 export const gasSchema = propertiesSchema('Gas', {
-	delivery_method: enumSchema(
+	deliveryMethod: enumSchema(
 		'Delivery Method',
 		['pipeline', 'shipped'],
 		'The method of energy delivery.'
 	),
-	flexibility_of_supply: enumSchema(
+	flexibilityOfSupply: enumSchema(
 		'Flexibility of Supply',
 		supplyLevel,
-		'The ability of gas plants to quickly adjust output to meet demand.'
+		'Gas plant flexibility.'
 	),
-	emission_credits_or_penalties: enumSchema(
+	emissionCreditsOrPenalties: enumSchema(
 		'Emission Credits or Penalties',
 		['credits', 'penalties'],
-		'Details on the cost of emissions or availability of emission credits.'
+		'Emission costs and credit availability.'
 	),
-	contract_length: numberSchema(
+	contractLength: numberSchema(
 		'Contract Length',
 		'The duration of contracts for gas trades.'
 	),

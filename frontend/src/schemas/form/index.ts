@@ -1,33 +1,45 @@
-import { energyTypes, generateSchema } from '../../utils';
-import { locationSchema } from '../commons/location';
-import { termsSchema } from '../terms';
+import { energyTypes, generateSchema, numberSchema } from '../../utils';
 import { solarSchema } from '../energy/types/solar';
 import { gasSchema } from '../energy/types/gas';
 import { windSchema } from '../energy/types/wind';
 import { hydroSchema } from '../energy/types/hydro';
 import { kineticSchema } from '../energy/types/kinetic';
 import { thermalSchema } from '../energy/types/thermal';
+import { contractTermsSchema, paymentTermsSchema } from '../terms';
 
 export const formSchema = generateSchema('object', '', {
 	properties: {
-		energy_type: generateSchema('string', 'Energy type', {
+		energyType: generateSchema('string', 'Energy type', {
 			enum: energyTypes,
 			default: energyTypes[0],
 			description: 'The type of energy source used.',
 		}),
 		price: generateSchema('number', 'Price', {
 			description: 'The price per unit of energy.',
+			minimum: 1,
+			maximum: 100,
+			default: 1,
 		}),
-		minimum_purchase_quantity: generateSchema(
+		minimumPurchaseQuantity: generateSchema(
 			'number',
 			'Minimum Purchase Quantity',
-			{ description: 'The minimum amount of energy a buyer must purchase.' }
+			{
+				description: 'The minimum amount of energy a buyer must purchase.',
+				minimum: 1,
+				maximum: 100,
+				default: 1,
+			}
 		),
-		terms: termsSchema,
-		location: locationSchema,
+		capacity: numberSchema(
+			'Capacity',
+			'The maximum power output the solar installation can produce.',
+			{ minimum: 1, maximum: 100, default: 1 }
+		),
+		contractTerms: contractTermsSchema,
+		paymentTerms: paymentTermsSchema,
 	},
 	dependencies: {
-		energy_type: {
+		energyType: {
 			oneOf: [
 				{ ...solarSchema },
 				{ ...gasSchema },
@@ -38,4 +50,5 @@ export const formSchema = generateSchema('object', '', {
 			],
 		},
 	},
+	required: ['energyType', 'price', 'minimumPurchaseQuantity'],
 });

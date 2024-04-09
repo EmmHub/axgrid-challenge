@@ -4,22 +4,24 @@ import {
 	propertiesSchema,
 	supplyLevel,
 } from '../../../../utils';
+import { locationSchema } from '../../../commons/location';
 
 export const thermalSchema = propertiesSchema('Thermal', {
-	heat_source_stability: enumSchema(
+	heatSourceStability: enumSchema(
 		'Heat Source Stability',
 		supplyLevel,
 		'The stability of the heat source.'
 	),
-	temperature_gradient: numberSchema(
+	temperatureGradient: numberSchema(
 		'Temperature Gradient',
-		'The temperature difference for energy production.'
+		'Temperature difference.'
 	),
-	conversion_efficiency: numberSchema(
+	conversionEfficiency: numberSchema(
 		'Conversion Efficiency',
 		'Efficiency of thermal energy conversion.'
 	),
-	environmental_impact_and_regulation: enumSchema(
+	location: locationSchema,
+	environmentalImpactAndRegulation: enumSchema(
 		'Environmental Impact and Regulation',
 		['low', 'medium', 'high'],
 		'Regulations regarding heat extraction.'

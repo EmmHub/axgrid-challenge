@@ -4,13 +4,15 @@ import {
 	propertiesSchema,
 	supplyLevel,
 } from '../../../../utils';
+import { locationSchema } from '../../../commons/location';
 
 export const kineticSchema = propertiesSchema('Kinetic', {
-	energy_conversion_efficiency: numberSchema(
+	location: locationSchema,
+	energyConversionEfficiency: numberSchema(
 		'Energy Conversion Efficiency',
 		'The efficiency of the energy conversion.'
 	),
-	predictability_of_source: enumSchema(
+	predictabilityOfSource: enumSchema(
 		'Predictability of Source',
 		supplyLevel,
 		'Predictability of the energy source.'

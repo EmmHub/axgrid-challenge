@@ -6,26 +6,26 @@ import {
 } from '../../../../utils';
 
 export const hydroSchema = propertiesSchema('Hydro', {
-	water_flow_rate: numberSchema(
+	waterFlowRate: numberSchema(
 		'Water Flow Rate',
-		'The rate at which water is available for energy production.'
+		'Water availability for energy production.'
 	),
-	reservoir_level: enumSchema(
+	reservoirLevel: enumSchema(
 		'Reservoir Level',
 		supplyLevel,
 		'The level of the water in the reservoir.'
 	),
-	regulatory_compliance: enumSchema(
+	regulatoryCompliance: enumSchema(
 		'Regulatory Compliance',
 		['Yes', 'No'],
 		'Compliance with water regulations.'
 	),
-	flexibility_of_supply: enumSchema(
+	flexibilityOfSupply: enumSchema(
 		'Flexibility of Supply',
 		supplyLevel,
 		'Ability to adjust output based on demand.'
 	),
-	energy_storage: enumSchema(
+	energyStorage: enumSchema(
 		'Energy Storage',
 		supplyLevel,
 		'The capacity to store energy'

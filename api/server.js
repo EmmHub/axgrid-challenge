@@ -11,7 +11,55 @@ const ioOptions = {
 };
 
 const io = socketIo(server, ioOptions);
-let trades = [{status: "created",id:1}];
+let trades = [{
+  energyType: "Solar",
+  price: 100,
+  minimumPurchaseQuantity: 500,
+  location: {
+    latitude: 35.6895,
+    longitude: 139.6917
+  },
+  capacity: 50,
+  energyOutputPredictions: "low",
+  timeOfAvailability: "day",
+  certifications: ["ISO-14001", "REC"],
+  contractTerms: {
+    durationAmount: "12",
+    durationType: "months",
+    earlyTerminationPenalty: true,
+    otherLegalConditions: "N/A"
+  },
+  paymentTerms: {
+    paymentMethod: "Bank Transfer",
+    paymentSchedule: "Monthly"
+  },
+  status:"created",
+  id:2342342
+},{
+  energyType: "Wind",
+  price: 100,
+  minimumPurchaseQuantity: 500,
+  location: {
+    latitude: 35.6895,
+    longitude: 139.6917
+  },
+  capacity: 50,
+  energyOutputPredictions: "low",
+  timeOfAvailability: "day",
+  certifications: ["ISO-14001", "REC"],
+  contractTerms: {
+    durationAmount: "12",
+    durationType: "months",
+    earlyTerminationPenalty: true,
+    otherLegalConditions: "N/A"
+  },
+  paymentTerms: {
+    paymentMethod: "Bank Transfer",
+    paymentSchedule: "Monthly"
+  },
+  status:"created",
+  id:234234222
+}];
 
 
 function getNextStatus(currentStatus) {
@@ -24,19 +72,21 @@ function handleClientConnection(socket) {
   console.log(`Client connected with id: ${id}`);
 
   socket.on("addTrade", (newTrade) => {
-    trades = [...trades, newTrade];
+    trades = [newTrade,...trades];
+    socket.emit("trades", trades);
   });
 
-  socket.on("tradeUpdate", (updatedTrade) => {
+  socket.on("tradeUpdate", (id) => {
     trades = trades.map(trade => {
-      if (trade.id === updatedTrade.id) {
+      if (trade.id === id) {
         return {...trade, status: getNextStatus(trade.status)};
       }
       return trade;
     });
 
-    io.emit("tradeUpdate", trades);
+    socket.emit("trades", trades);
   });
+  io.emit("trades", trades);
 }
 
 io.on("connection", handleClientConnection);

@@ -1,0 +1,3 @@
+/api/*
+frontend/types.d.ts
+frontend/setup.ts

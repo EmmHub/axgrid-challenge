@@ -39,8 +39,6 @@ interface CellInfo extends CellOriginalType {
 	value: any;
 }
 
-type RenderCellFunction = (cellInfo: CellInfo) => React.ReactNode;
-
 type CellOriginalType = {
 	row: {
 		original: TableFormat;

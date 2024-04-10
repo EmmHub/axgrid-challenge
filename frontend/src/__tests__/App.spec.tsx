@@ -68,7 +68,6 @@ describe('<App />', () => {
 	});
 
 	it('Navigates to the trade results. Performs an update on a trade status, changing it from "created" to "accepted".', async () => {
-		screen.debug(undefined, Infinity);
 		const {
 			emitTradeUpdate,
 			getConfirmInCell,
@@ -76,11 +75,9 @@ describe('<App />', () => {
 			tradeResult,
 			getCreatedInCell,
 		} = renderComponent();
-		screen.debug();
 		await user.click(tradeResult);
 		const [createCell] = getCreatedInCell();
 		expect(createCell).toHaveTextContent('created');
-		screen.debug();
 		const [confirmCell] = getConfirmInCell();
 		await user.click(confirmCell);
 		expect(emitTradeUpdate).toHaveBeenCalledOnce();

@@ -1,14 +1,21 @@
+import React, { useRef } from 'react';
 import Form, { IChangeEvent } from '@rjsf/core';
 import { useLocation } from 'react-router-dom';
 import validator from '@rjsf/validator-ajv8';
-import { useRef } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { formSchema } from '../../schemas/form';
 import { useEnergyTrade } from '../../context/EnergyTradeContext';
 import { createTrade, getFormHeader, getUpdatedUiSchema } from '../../utils';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const EnergyTradeForm = () => {
+/**
+ * EnergyTradeForm is a functional component that renders a form for trading energy.
+ *
+ * @returns {React.ReactElement} The rendered EnergyTradeForm component.
+ * @example
+ * <EnergyTradeForm />
+ */
+export const EnergyTradeForm = (): React.ReactElement => {
 	const formRef = useRef<Form>(null);
 	const locationState = useLocation().state;
 	const locationId = locationState?.id;
@@ -28,7 +35,10 @@ export const EnergyTradeForm = () => {
 	const updatedUiSchema = getUpdatedUiSchema(locationId);
 
 	return (
-		<div className='flex justify-center mt-20 mb-10'>
+		<div
+			data-testid='EnergyTradeForm'
+			className='flex justify-center mt-20 mb-10'
+		>
 			<div className='w-3-10'>
 				<ToastContainer
 					position='top-right'
@@ -43,6 +53,7 @@ export const EnergyTradeForm = () => {
 				/>
 				<h1 className='mb-5'>{formHeader}</h1>{' '}
 				<Form
+					id='form'
 					schema={formSchema}
 					uiSchema={updatedUiSchema}
 					validator={validator}

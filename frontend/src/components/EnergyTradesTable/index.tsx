@@ -86,7 +86,7 @@ export const EnergyTradesTable: React.FC<EnergyTradesTableProps> = ({
 	const tableInstance = useTable(tableProps, useFilters);
 
 	return (
-		<div className='flex-row flex-center'>
+		<div data-testid='EnergyTradesTable' className='flex-row flex-center'>
 			<div className='w-80'>
 				<table {...tableInstance.getTableProps()} className='energyTradesTable'>
 					<thead>{tableInstance.headerGroups.map(renderTableHeaderRow)}</thead>

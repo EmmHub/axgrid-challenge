@@ -1,3 +1,4 @@
+import React from 'react';
 import {
 	BrowserRouter as Router,
 	Navigate,
@@ -10,7 +11,13 @@ import { useEnergyTrade } from './context/EnergyTradeContext';
 import { NavigationBar } from './components/NavigationBar';
 import { convertToTableFormat, getTradesColumns } from './utils';
 
-function App() {
+/**
+ * The `App` function returns the main application component.
+ * It sets up the routes and renders the necessary components based on the current route.
+ *
+ * @returns {React.ReactElement} The root element of the application.
+ */
+function App(): React.ReactElement {
 	const { trades, emitTradeUpdate } = useEnergyTrade();
 	const data = convertToTableFormat(trades) || [];
 	const columns = getTradesColumns(emitTradeUpdate) || [];

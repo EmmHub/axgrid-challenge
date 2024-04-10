@@ -89,6 +89,17 @@ To start the frontend part, follow these steps:
 
 This will start the development server, usually available at http://localhost:5173.
 
+### Running Tests
+
+To run tests in the project, use the following commands:
+
+- To execute all tests:
+  ```sh
+  npm test
+- To run tests interactively using the Vitest user interface, you can use the following command:
+  ```sh
+  npm run test:ui
+
 ### Styles and Noteworthy Dependencies
 
 - A single index.css file is used for global styles.

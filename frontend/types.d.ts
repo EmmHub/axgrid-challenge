@@ -24,7 +24,7 @@ type Trade = {
 	id: string | number;
 };
 
-type Trades = Trade[];
+type Trades = Trade[] | [];
 
 type AddTrade = (trade: Trade) => void;
 type EmitTradeUpdate = (id: string | number) => void;

@@ -50,3 +50,68 @@ export const trades = [
 		id: 234234222,
 	},
 ];
+
+const commonFields = {
+	location: 'root_location',
+	timeOfAvailability: 'root_timeOfAvailability',
+	certifications: 'root_certifications',
+};
+
+export const energyTypesWithFields = [
+	{
+		type: 'Solar',
+		fields: [
+			commonFields.location,
+			'root_energyOutputPredictions',
+			commonFields.timeOfAvailability,
+			commonFields.certifications,
+		],
+	},
+	{
+		type: 'Wind',
+		fields: [
+			commonFields.location,
+			'root_turbineEfficiency',
+			'root_windSpeedPredictions',
+			commonFields.timeOfAvailability,
+			commonFields.certifications,
+		],
+	},
+	{
+		type: 'Gas',
+		fields: [
+			'root_deliveryMethod',
+			'root_flexibilityOfSupply',
+			'root_emissionCreditsOrPenalties',
+			'root_contractLength',
+		],
+	},
+	{
+		type: 'Hydro',
+		fields: [
+			'root_waterFlowRate',
+			'root_reservoirLevel',
+			'root_regulatoryCompliance',
+			'root_flexibilityOfSupply',
+			'root_energyStorage',
+		],
+	},
+	{
+		type: 'Kinetic',
+		fields: [
+			commonFields.location,
+			'root_energyConversionEfficiency',
+			'root_predictabilityOfSource',
+		],
+	},
+	{
+		type: 'Thermal',
+		fields: [
+			'root_heatSourceStability',
+			'root_temperatureGradient',
+			'root_conversionEfficiency',
+			commonFields.location,
+			'root_environmentalImpactAndRegulation',
+		],
+	},
+];

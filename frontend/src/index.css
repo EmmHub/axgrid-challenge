@@ -2,7 +2,9 @@
     --space-5: 1.25rem;
     --space-10: 2.5rem;
 }
-
+.w-4-10{
+  width: 40%;
+}
 .flex {
     display: flex;
 }

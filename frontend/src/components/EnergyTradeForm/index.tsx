@@ -39,7 +39,7 @@ export const EnergyTradeForm = (): React.ReactElement => {
 			data-testid='EnergyTradeForm'
 			className='flex justify-center mt-20 mb-10'
 		>
-			<div className='w-3-10'>
+			<div className='w-4-10'>
 				<ToastContainer
 					position='top-right'
 					autoClose={3000}

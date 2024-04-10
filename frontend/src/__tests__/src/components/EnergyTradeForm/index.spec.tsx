@@ -1,8 +1,3 @@
-// import { render, screen, fireEvent } from '@testing-library/react';
-// import { EnergyTradeForm } from './index';
-// import { ToastContainer } from 'react-toastify';
-// import { IChangeEvent } from '@rjsf/core';
-
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect } from 'vitest';
